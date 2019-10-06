@@ -34,6 +34,7 @@ const Title = styled(HeaderPart)`
 
 export default () => {
   const history = useHistory();
+  const chatInputEl = React.useRef<HTMLInputElement>(null);
   return (
     <Container>
       <Header>
@@ -48,10 +49,10 @@ export default () => {
         style={{ display: 'flex' }}
         onSubmit={(e) => {
           e.preventDefault();
-          console.log('hihi');
+          console.log(chatInputEl.current && chatInputEl.current.value);
         }}
       >
-        <input style={{ flex: 1 }} />
+        <input style={{ flex: 1 }} ref={chatInputEl} />
         <button>보내기</button>
       </form>
     </Container>
